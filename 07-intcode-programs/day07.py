@@ -8,6 +8,8 @@ def run_sequential(phases, program):
     signal = 0
     for phase in phases:
         signal = IntcodeVM(program).run([phase, signal])
+    if signal == 30940:
+        print(phases)
     return signal
 
 
@@ -29,7 +31,8 @@ def run_continous(phases, program):
         signal = vm.run(signal)
         if vm.stopped:
             finished += 1
-
+    if signal == 76211147:
+        print(phases)
     return signal
 
 

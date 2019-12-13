@@ -125,7 +125,7 @@ def parse_opcode(code: int):
 
 class IntcodeVM:
     def __init__(self, memory, debug=False):
-        self.memory = memory.copy()
+        self.memory = np.asarray(memory).copy()
         self.inputs = []
         self.outputs = []
         self.debug = debug
@@ -139,10 +139,12 @@ class IntcodeVM:
         self._param_modes = None
         self._params = None
 
-    def run(self, inputs: Union[int, List[int]]):
+    def run(self, inputs: Union[int, List[int], None] = None):
         """
         Run the Intcode VM until the program terminates or an input is required that is not yet available
         """
+        if inputs is None:
+            inputs = []
         try:
             self.inputs.extend(inputs)
         except TypeError:  # single integer

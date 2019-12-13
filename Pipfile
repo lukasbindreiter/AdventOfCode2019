@@ -6,8 +6,10 @@ verify_ssl = true
 [dev-packages]
 black = "*"
 pylint = "*"
+pytest = "*"
 
 [packages]
+aoc = {editable = true, path = "."}
 numpy = "*"
 scipy = "*"
 matplotlib = "*"
@@ -15,7 +17,7 @@ ipykernel = "*"
 advent-of-code-data = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3"
 
 [pipenv]
 allow_prereleases = true
